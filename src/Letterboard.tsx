@@ -1,24 +1,9 @@
-import React, { useState } from "react";
-import TextField from "@material-ui/core/TextField";
+import React from "react";
 
-export const Letterboard: React.FC = () => {
-  const [inputMessage, setInputMessage] = useState("");
-  const letterboardMessage = inputMessage.toUpperCase();
+interface Props {
+  message: string;
+}
 
-  return (
-    <>
-      <TextField
-        id="standard-basic"
-        label="Message"
-        placeholder="Enter your message here..."
-        multiline
-        value={inputMessage}
-        onChange={(event): void => {
-          setInputMessage(event.target.value);
-        }}
-        style={{ margin: "1em", width: "80%" }}
-      />
-      <p>{letterboardMessage}</p>
-    </>
-  );
-};
+export const Letterboard: React.FC<Props> = (props: Props) => (
+  <p>{props.message}</p>
+);
