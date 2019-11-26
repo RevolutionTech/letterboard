@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow
-} from "@material-ui/core";
+import MaterialTable from "material-table";
 
 interface Props {
   letters: Record<string, number>;
@@ -13,21 +7,17 @@ interface Props {
 
 export const LetterCounter: React.FC<Props> = (props: Props) => {
   return (
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>Character</TableCell>
-          <TableCell align="right">Count</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {Object.keys(props.letters).map((character, i) => (
-          <TableRow key={i}>
-            <TableCell>{character}</TableCell>
-            <TableCell align="right">{props.letters[character]}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+    <>
+      <MaterialTable
+        columns={[
+          { title: "Character", field: "character" },
+          { title: "Count", field: "count" }
+        ]}
+        data={Object.keys(props.letters).map(character => {
+          return { character, count: props.letters[character] };
+        })}
+        options={{ paging: false, sorting: true, toolbar: false }}
+      />
+    </>
   );
 };
