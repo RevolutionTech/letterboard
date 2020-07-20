@@ -18,10 +18,10 @@ export const LetterCounter: React.FC<Props> = (props: Props) => {
             title: "Remaining",
             field: "remaining",
             defaultSort: "asc",
-            customSort: (a, b): number => a.remaining - b.remaining
-          }
+            customSort: (a, b): number => a.remaining - b.remaining,
+          },
         ]}
-        data={Object.keys(props.letters).map(character => {
+        data={Object.keys(props.letters).map((character) => {
           const count = props.letters[character];
           const total = LETTER_TOTALS[character] || 0;
 
@@ -29,16 +29,16 @@ export const LetterCounter: React.FC<Props> = (props: Props) => {
             character,
             count,
             total,
-            remaining: total - count
+            remaining: total - count,
           };
         })}
         options={{
           paging: false,
           rowStyle: (rowData): React.CSSProperties => ({
-            backgroundColor: rowData.remaining < 0 ? "red" : "white"
+            backgroundColor: rowData.remaining < 0 ? "red" : "white",
           }),
           sorting: true,
-          toolbar: false
+          toolbar: false,
         }}
       />
     </>

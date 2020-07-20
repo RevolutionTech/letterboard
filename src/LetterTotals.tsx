@@ -52,5 +52,5 @@ export const LETTER_TOTALS: Record<string, number> = {
   "{": 1,
   "}": 1,
   "~": 1,
-  "¢": 1
+  "¢": 1,
 };
