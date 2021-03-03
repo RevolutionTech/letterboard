@@ -30,6 +30,7 @@ jobs:
     needs: test
     if: github.ref == 'refs/heads/master'
     steps:
+      - uses: actions/checkout@v2
       - run: yarn build
       - uses: jakejarvis/s3-sync-action@v0.5.1
         with:
