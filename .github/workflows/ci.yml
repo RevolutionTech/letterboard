@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/yarn-cache
       - run: yarn install
 
       - run: yarn typecheck
@@ -18,7 +17,6 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/yarn-cache
       - run: yarn install
 
       - run: yarn build
