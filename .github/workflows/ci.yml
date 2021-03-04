@@ -3,7 +3,7 @@ on: push
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/yarn-cache
@@ -13,7 +13,7 @@ jobs:
       - run: yarn lint
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: test
     if: github.ref == 'refs/heads/master'
     steps:
